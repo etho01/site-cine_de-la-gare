@@ -61,6 +61,8 @@
 
 <script>
     import userObj from '../../../store/userStore/user.js';
+    import Axios from '../../../utils/caller';
+
     export default {
         data() {
             return {
@@ -79,15 +81,15 @@
                     return "";
                 }
 
-                this.$http.get(this.urlServApi+'/user/register'+
+                Axios.get('/user/register'+
                 '?email='+this.email+'&password='+this.password
                 +'&nom='+this.nom+'&prenom='+this.prenom).
                 then((response) =>{
                     this.user.login(response.data)
                     this.$router.push('/') 
                 }, (response) => {
-                    if (response.status == 403){
-                        if (response.data.message == 'user already exist'){
+                    if (response.request.status == 403){
+                        if (response.response.data.message == 'user already exist'){
                             this.error = 'Le mail est déja pris'
                         }
                     } else {
@@ -100,15 +102,15 @@
                     return "";
                 }
 
-                this.$http.get(this.urlServApi+'/user/'+this.user.state.api_token+'/update'+
+                this.$http.get('/user/'+this.user.state.api_token+'/update'+
                 '?email='+this.email+'&password='+this.password
                 +'&nom='+this.nom+'&prenom='+this.prenom).
                 then((response) =>{
                     this.user.login(response.data)
                     this.$router.push('/') 
                 }, (response) => {
-                    if (response.status == 403){
-                        if (response.data.message == 'user already exist'){
+                    if (response.request.status == 403){
+                        if (response.response.data.message == 'user already exist'){
                             this.error = 'Le mail est déja pris'
                         }
                     } else {
@@ -117,12 +119,12 @@
                 })
             },
             deleteUser (){
-                this.$http.get(this.urlServApi+'/user/'+this.user.state.api_token+'/delete').
+                this.$http.get('/user/'+this.user.state.api_token+'/delete').
                 then((response) =>{
                     this.disconect();
                 }, (response) => {
-                    if (response.status == 403){
-                        if (response.data.message == 'user already exist'){
+                    if (response.request.status == 403){
+                        if (response.response.data.message == 'user already exist'){
                             this.error = 'Le mail est déja pris'
                         }
                     } else {

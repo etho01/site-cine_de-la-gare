@@ -67,6 +67,7 @@
 
 <script>
     import userObj from '../../../store/userStore/user.js';
+    import Axios from '../../../utils/caller';
     export default {
         data() {
             return {
@@ -80,12 +81,10 @@
         },
         methods : {
             getFilm (){
-                this.$http.get(this.urlServApi+'/searchMovie?nom_film='+this.filtre)
+                Axios.get('/searchMovie?nom_film='+this.filtre)
                 .then((response) =>{
-                    console.log(response.data);
                     this.rep = response.data
                 }, (response) => {
-                    console.log(response)
                 })
 
             },
@@ -100,12 +99,12 @@
             },
             demandeFilm(id) {
                 this.success = ""
-                this.$http.get(this.urlServApi+'/'+this.user.state.api_token+'/demande?id_film='+id)
+                Axios.get('/'+this.user.state.api_token+'/demande?id_film='+id)
                 .then((response) =>{
                     this.success = "Demande envoyer"
                 }, (response) => {
-                    if (response.status == 403){
-                        if (response.data.message = "demande already exist"){
+                    if (response.request.status == 403){
+                        if (response.response.data.message = "demande already exist"){
                             this.error = "Erreur, vous avez deja fait une demande pour ce film"
                         }
                     }

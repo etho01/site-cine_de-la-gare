@@ -29,6 +29,11 @@
 import Loader from '../../utils/loader/Loader.vue';
 import SliderElement from '../../utils/slider/SliderElement.vue';
 import Slider from './../../utils/slider/Slider.vue';
+
+import Axios from '../../../utils/caller';
+
+
+
 export default {
     props : {
         filmsAfficheProps : {type: Array, default () {return []}}
@@ -41,11 +46,13 @@ export default {
     },
     mounted() {
         this.load = false;
-        this.$http.get(this.urlServApi+'/films/getAffiche').
+        console.log(Axios)
+        Axios.get('/films/getAffiche').
                 then((response) =>{
                     this.filmsAffiche = response.data;
                     this.load = true;
-                }, (response) => {
+                })
+                .catch ((response) => {
                     console.log('erreur', response);
                 })
     },

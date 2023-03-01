@@ -30,11 +30,13 @@
 <script>
 import FilmSeance from './filmSceance/FilmSeance.vue';
 import Loader from '../../utils/loader/Loader.vue';
+
+import Axios from '../../../utils/caller';
     
     export default {
         mounted() {
             this.load = false;
-            this.$http.get(this.urlServApi+'/seances/getByFilm').
+            Axios.get('/seances/getByFilm').
                 then((response) =>{
                     this.listesFilmSeance = response.data;
                     this.load = true;

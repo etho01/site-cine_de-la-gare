@@ -38,6 +38,9 @@
 
 <script>
     import userObj from './../../../store/userStore/user.js';
+
+    import Axios from '../../../utils/caller';
+
     export default {
         data() {
             return {
@@ -50,14 +53,14 @@
 
         methods : {
             login() {
-                this.$http.get(this.urlServApi+'/user/login'+
+                Axios.get('/user/login'+
                 '?email='+this.email+'&password='+this.password).
                 then((response) =>{
                     this.user.login(response.data)
                     this.$router.push('/') 
                 }, (response) => {
                     console.log(response)
-                    if (response.status == 403){
+                    if (response.request.status == 403){
                         this.error = "Erreur, email ou mot de passe incorect";
                     } else {
                         this.error = "Erreur : veuillez réessayer plus tard.";

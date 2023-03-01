@@ -44,9 +44,11 @@ export default {
     },
     mounted () {
         this.elements = this.$children
-        this.elements.forEach((element, i) => {
-            element.idElement = this.typeSlider+i
-        })
+        if (this.elements != undefined){
+            this.elements.forEach((element, i) => {
+                element.idElement = this.typeSlider+i
+            })
+        }
     },
     methods: {
         next () {
