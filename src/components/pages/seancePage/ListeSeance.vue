@@ -65,8 +65,9 @@ import Axios from '../../../utils/caller';
             },
             listesFilmSeanceWithFiltre (){
                 return this.listesFilmSeance.filter((element) => {
-                        name = element.title;
-                        return name.includes(this.recherche)
+                        name = element.title.toUpperCase();
+                        
+                        return name.includes(this.recherche.toUpperCase())
                 })
             }
             

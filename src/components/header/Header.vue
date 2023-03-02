@@ -6,7 +6,7 @@
                 <span class="fs-1"> Cinema de la Gare</span>
                 <button class="navbar-toggler collapsed" type="button" aria-label="Toggle navigation" aria-expanded="false" @click="toggleNavbar()"
                  aria-controls="nav-collapse" style="overflow-anchor: none;">
-                    s
+                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse" :class="{ show : extented }" id="nav-collapse">
                     <!-- Right aligned nav items -->

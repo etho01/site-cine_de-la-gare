@@ -46,7 +46,6 @@ export default {
     },
     mounted() {
         this.load = false;
-        console.log(Axios)
         Axios.get('/films/getAffiche').
                 then((response) =>{
                     this.filmsAffiche = response.data;
