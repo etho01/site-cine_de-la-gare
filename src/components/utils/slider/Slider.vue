@@ -36,21 +36,24 @@ export default {
         }
     },
     updated() {
-        this.elements = this.$children
+        this.elements = this.getChlidren()
         this.elements.forEach((element, i) => {
             element.idElement = this.typeSlider+i
         })
         this.pos = 0;
     },
     mounted () {
-        this.elements = this.$children
+        this.elements = this.getChlidren()
         if (this.elements != undefined){
             this.elements.forEach((element, i) => {
-                element.idElement = this.typeSlider+i
+                element.id = this.typeSlider+i
             })
         }
     },
     methods: {
+        getChlidren() {
+            return document.querySelectorAll('[ref-slider="'+this.typeSlider+'"]');
+        },
         next () {
             if (this.pos >= this.elements.length -1){
                 this.pos = 0;
@@ -69,7 +72,7 @@ export default {
         },
         resize () {
             this.elements.forEach((element, i) => {
-                element.infoTranslate = "translateX(-"+this.pos * document.getElementById(this.typeSlider+"0").offsetWidth+"px)";
+                element.style.transform = "translateX(-"+this.pos * document.getElementById(this.typeSlider+"0").offsetWidth+"px)";
             });
          }
     },

@@ -8,7 +8,7 @@
 
     </div>
             <Slider typeSliderProps="filmsAffiche" v-if="load">
-                <SliderElement class="col-12 col-md-3 col-lg-2" v-for="filmAffiche in filmsAffiche">
+                <SliderElement  typeSliderProps="filmsAffiche" class="col-12 col-md-3 col-lg-2" v-for="filmAffiche in filmsAffiche">
                     <div class="card">
 
                         <img class="img-fluid" :src="filmAffiche.poster" alt="">
@@ -52,7 +52,6 @@ export default {
                     this.load = true;
                 })
                 .catch ((response) => {
-                    console.log('erreur', response);
                 })
     },
     components: {

@@ -1,5 +1,5 @@
 <template>
-    <div :id="idElement" :style="{ transform:  infoTranslate}" class="slider-element">
+    <div ref-slider="filmsAffiche" class="slider-element">
         <slot></slot>
     </div>
     
@@ -9,10 +9,12 @@
 <script>
     
     export default {
+        props : {
+        typeSliderProps : {type: String, default : ""}
+    },
         data() {
             return {
-                infoTranslate: "translateX(-0px)",
-                idElement: ""
+                typeSlider : this.typeSliderProps
             }
         },
 

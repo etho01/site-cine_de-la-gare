@@ -41,7 +41,6 @@ import Axios from '../../../utils/caller';
                     this.listesFilmSeance = response.data;
                     this.load = true;
                 }, (response) => {
-                    console.log('erreur', response);
                 })
         },
         data() {
@@ -54,7 +53,6 @@ import Axios from '../../../utils/caller';
         },
         methods: {
             toggleFiltre(){
-                console.log(this.listesFilmSeance);
                 this.filtreShow = !this.filtreShow
             },
 

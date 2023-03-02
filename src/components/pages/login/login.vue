@@ -59,7 +59,6 @@
                     this.user.login(response.data)
                     this.$router.push('/') 
                 }, (response) => {
-                    console.log(response)
                     if (response.request.status == 403){
                         this.error = "Erreur, email ou mot de passe incorect";
                     } else {
