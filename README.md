@@ -1,29 +1,17 @@
-# test
+# site cinema de la gare
 
-This template should help get you started developing with Vue 3 in Vite.
+ce site est un extranet d uprojet cinegest. Cette extranet est reliser grâce à la librairie VUE JS 
 
-## Recommended IDE Setup
+## fonctionnalite
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+url du site : http://cinedelagare.nicolasbarbey.fr/
 
-## Customize configuration
+ce site se connecte à l'API de cinegest pour toutes ces fonctionnalités
+ATTENTION ce site est connecter uniquement au cinema de la gare du site cinegest
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Ces fonctionnalitées sont :
+- la vision des films a l'affiche
+- la vision des séances
+- la connection des utilisateurs
+- l'inscription des utilisateurs
+- la demande de films
